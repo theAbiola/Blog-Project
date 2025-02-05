@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everyday Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="skranji-bold">Everyday Blog 📝</h1>
+      <a id="newPostBtn" href="/new" class="skranji-regular">New post</a>
+      <ul id="postsList">
+        <% posts.forEach(post=> { %>
+        <li>
+          <h2><%=post.title%></h2>
+          <small> <%=post.date %> </small>
+          <p><%=post.content%></p>
+          <small>By: <%=post.author%> </small>
+          <a class="edit skranji-regular" href="/edit/<%= post.id %>"
+            >Edit post</a
+          >
+          <a
+            class="delete skranji-regular"
+            href="/blog/posts/delete/<%= post.id %>"
+            >Delete post</a
+          >
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+    <footer>
+      <p style="margin-top: 30px; text-align: center; color: white">
+        Copyright © Abdulraheem Habib Abiola, <span id="copyright"></span>
+      </p>
+    </footer>
+
+    <script>
+      document.querySelector("#copyright").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
