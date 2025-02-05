@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Blog</title>
-    <!-- <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    /> -->
-    <link rel="stylesheet" href="/styles/main.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1><%= heading %></h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Blog</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
 
-      <% if (locals.post) { %>
+<body>
+  <div class="container">
+    <h1>
+      <%= heading %>
+    </h1>
+
+    <% if (locals.post) { %>
       <form id="editForm" method="post" action="/blog/posts/<%=post.id%>">
         <input type="text" name="title" value="<%=post.title %>" />
         <textarea name="content" rows="10"><%=post.content %></textarea>
         <input type="text" name="author" value="<%=post.author %>" />
-        <button class="full-width" type="submit"><%= submit %></button>
+        <button class="full-width" type="submit">
+          <%= submit %>
+        </button>
       </form>
       <% } else {%>
-      <form id="newPostForm" method="post" action="/blog/posts">
-        <input type="text" name="title" placeholder="Title" required />
-        <textarea
-          name="content"
-          placeholder="Content"
-          required
-          rows="10"
-        ></textarea>
-        <input type="text" name="author" placeholder="Author" required />
-        <button class="full-width" type="submit"><%= submit %></button>
-      </form>
-      <% } %>
-    </div>
-    <footer>
-      <p style="margin-top: 30px; text-align: center; color: white">
-        Copyright © Abdulraheem Habib Abiola, <span id="copyright"></span>
-      </p>
-    </footer>
+        <form id="newPostForm" method="post" action="/blog/posts">
+          <input type="text" name="title" placeholder="Title" required />
+          <textarea name="content" placeholder="Content" required rows="10"></textarea>
+          <input type="text" name="author" placeholder="Author" required />
+          <button class="full-width" type="submit">
+            <%= submit %>
+          </button>
+        </form>
+        <% } %>
+  </div>
+  <footer>
+    <p style="margin-top: 30px; text-align: center; color: white">
+      Copyright © Abdulraheem Habib Abiola, <span id="copyright"></span>
+    </p>
+  </footer>
 
-    <script>
-      document.querySelector("#copyright").textContent =
-        new Date().getFullYear();
-    </script>
-  </body>
+  <script>
+    document.querySelector("#copyright").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+
 </html>

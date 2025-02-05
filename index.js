@@ -17,7 +17,6 @@ const db = new pg.Client({
 db.connect();
 
 const port = process.env.APPLICATION_PORT;
-const API_URL = process.env.API_URL;
 
 app.use(express.static("public")); //allows us save static files in the public folder
 
