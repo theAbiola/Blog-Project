@@ -11,19 +11,21 @@ import {
 const router = express.Router();
 
 // Route to render the main page
-router.get("/",);
+router.get("/", getMainPage);
 
 // Route to render the new post page
-router.get("/new",);
+router.get("/new", getNewPage);
 
 // Route to render the edit page
-router.get("/edit/:id",);
+router.get("/edit/:id", getEditPage);
 
 // Create a new post
-router.post("/blog/posts",);
+router.post("/blog/posts", postNewBlog);
 
 // Partially update a post
-router.post("/blog/posts/:id",);
+router.post("/blog/posts/:id", postBlogUpdate);
 
 // Delete a post
-router.get("/blog/posts/delete/:id",);
+router.get("/blog/posts/delete/:id", deleteBlog);
+
+export default router;
